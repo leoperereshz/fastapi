@@ -59,5 +59,7 @@ def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return items
 
 
-#para executar
+#para executar (como modulo)
 #uvicorn sql_app.main:app --reload
+#para executar direto
+#uvicorn main:app --reload
