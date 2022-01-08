@@ -3,6 +3,7 @@ from fastapi import Depends, FastAPI
 from .dependencies import get_query_token, get_token_header
 from .internal import admin
 from .routers import items, users
+from .config import settings
 
 description = """
 ChimichangApp API helps you do awesome stuff. 🚀
@@ -34,7 +35,8 @@ tags_metadata = [
 ]
 
 app = FastAPI(
-    title="ChimichangApp",
+    #title="ChimichangApp",
+    title = settings.app_name,
     description=description,
     openapi_tags=tags_metadata,
     version="0.0.1",
@@ -42,7 +44,8 @@ app = FastAPI(
     contact={
         "name": "Deadpoolio the Amazing",
         "url": "http://x-force.example.com/contact/",
-        "email": "dp@x-force.example.com",
+        #"email": "dp@x-force.example.com",
+        "email": settings.admin_email,
     },
     license_info={
         "name": "Apache 2.0",
